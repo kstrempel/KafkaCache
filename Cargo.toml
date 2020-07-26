@@ -1,0 +1,23 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["kai strempel <kai.strempel@takeaway.com>"]
+edition = "2018"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "producer"
+path = "src/producer.rs"
+
+[dependencies]
+actix-web = "2.0"
+actix-rt = "1.0"
+lazy_static = "1.4.0"
+env_logger = "0.7.1"
+log = "0.4.0"
+failure = "0.1.8"
+tokio = { version = "0.2", features = ["full"] }
+rdkafka = "0.23.0"
