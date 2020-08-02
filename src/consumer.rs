@@ -7,7 +7,7 @@ use rdkafka::error::KafkaError;
 use rdkafka::message::{BorrowedMessage, Message as KafkaMessage};
 use futures::StreamExt;
 use std::collections::HashMap;
-use std::sync::{Arc};
+use std::sync::{Arc, RwLock};
 use actix_web::web;
 
 
@@ -15,7 +15,7 @@ use actix_web::web;
 pub struct MessagePayload(String);
 
 pub struct AppStateMemory {
-    pub memory: Arc<HashMap<u32, &'static str>>
+    pub memory: Arc<RwLock<HashMap<u32, &'static str>>>
 }
 
 /// generic way to turn a borrowed message into a (wrapped) string

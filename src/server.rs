@@ -7,7 +7,7 @@ use actix_web::{HttpResponse, Responder, web};
 use failure::Fail;
 use crate::consumer::{IngestConsumer, AppStateMemory};
 use std::collections::HashMap;
-use std::sync::{Arc};
+use std::sync::{Arc, RwLock};
 
 
 #[derive(Fail, Debug)]
@@ -17,7 +17,7 @@ pub struct KCError {
 }
 
 async fn get_key(key: web::Path<(u32,)>, data: web::Data<AppStateMemory>) -> HttpResponse {
-    let memory = data.memory.clone();
+    let memory = data.memory.read().unwrap();
     match memory.get(&key.0) {
         Some(v) => HttpResponse::Ok().body(*v),
         None => HttpResponse::NotFound().body("can't found key")
@@ -40,13 +40,13 @@ async fn main() -> std::io::Result<()> {
     env_logger::init();
 
     let memory = web::Data::new(AppStateMemory {
-        memory: Arc::new(HashMap::new())
+        memory: Arc::new(RwLock::new(HashMap::new()))
     });
 
     match IngestConsumer::new() {
         Ok(consumer) =>  {
             info!("Start listener");
-            actix_rt::spawn(async move { consumer.run(memory).await });
+            actix_rt::spawn(async move { consumer.run(memory.clone()).await });
         },
         Err(e) => info!("Eror in starting listener {:?}", e),
     }
