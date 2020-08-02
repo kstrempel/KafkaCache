@@ -20,5 +20,6 @@ env_logger = "0.7.1"
 log = "0.4.0"
 failure = "0.1.8"
 tokio = { version = "0.2", features = ["full"] }
+futures = { version = "0.3", features = ["compat"] }
 rdkafka = "0.23.0"
 rand = "0.7.3"

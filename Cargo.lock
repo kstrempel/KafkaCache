@@ -27,7 +27,7 @@ dependencies = [
  "actix-utils",
  "derive_more",
  "either",
- "futures",
+ "futures 0.3.5",
  "http",
  "log",
  "trust-dns-proto",
@@ -190,7 +190,7 @@ dependencies = [
  "actix-utils",
  "derive_more",
  "either",
- "futures",
+ "futures 0.3.5",
  "log",
 ]
 
@@ -206,7 +206,7 @@ dependencies = [
  "bitflags",
  "bytes",
  "either",
- "futures",
+ "futures 0.3.5",
  "log",
  "pin-project",
  "slab",
@@ -234,7 +234,7 @@ dependencies = [
  "bytes",
  "derive_more",
  "encoding_rs",
- "futures",
+ "futures 0.3.5",
  "fxhash",
  "log",
  "mime",
@@ -580,6 +580,12 @@ checksum = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
 
 [[package]]
 name = "futures"
+version = "0.1.29"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1b980f2816d6ee8673b6517b52cb0e808a180efc92e5c19d02cdda79066703ef"
+
+[[package]]
+name = "futures"
 version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e05b85ec287aac0dc34db7d4a569323df697f9c55b99b15d6b4ef8cde49f613"
@@ -659,6 +665,7 @@ version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8764574ff08b701a084482c3c7031349104b07ac897393010494beaa18ce32c6"
 dependencies = [
+ "futures 0.1.29",
  "futures-channel",
  "futures-core",
  "futures-io",
@@ -1248,7 +1255,7 @@ version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d455ac2a07a27d87b4f0e321dfd8d9a5b574bd96f55e42e6c594712a08051222"
 dependencies = [
- "futures",
+ "futures 0.3.5",
  "libc",
  "log",
  "rdkafka-sys",
@@ -1372,6 +1379,7 @@ dependencies = [
  "actix-web",
  "env_logger",
  "failure",
+ "futures 0.3.5",
  "lazy_static",
  "log",
  "rand",
@@ -1586,7 +1594,7 @@ dependencies = [
  "async-trait",
  "enum-as-inner",
  "failure",
- "futures",
+ "futures 0.3.5",
  "idna",
  "lazy_static",
  "log",
@@ -1605,7 +1613,7 @@ checksum = "6f90b1502b226f8b2514c6d5b37bafa8c200d7ca4102d57dc36ee0f3b7a04a2f"
 dependencies = [
  "cfg-if",
  "failure",
- "futures",
+ "futures 0.3.5",
  "ipconfig",
  "lazy_static",
  "log",

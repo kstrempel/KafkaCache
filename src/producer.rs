@@ -28,6 +28,7 @@ async fn publish_line_to_topic(topic: String, line: String, key: String, produce
     }
 }
 
+
 #[tokio::main]
 async fn main() {
     std::env::set_var("RUST_LOG", "info");
